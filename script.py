@@ -2,7 +2,6 @@ import holidays
 from datetime import timedelta, date
 from fast_bitrix24 import Bitrix
 from datetime import datetime
-import os
 from environs import Env
 
 env = Env()
