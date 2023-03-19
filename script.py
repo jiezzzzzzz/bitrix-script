@@ -3,9 +3,12 @@ from datetime import timedelta, date
 from fast_bitrix24 import Bitrix
 from datetime import datetime
 import os
+from environs import Env
 
+env = Env()
+env.read_env()
 # данные для создания задачи в битрикс
-webhook = os.environ.get('WEBHOOK')   # вебхук хранится в переменных окружения
+webhook = env('WEBHOOK')   # вебхук хранится в переменных окружения
 bitrix = Bitrix(webhook)
 method = 'tasks.task.add'
 params = {'fields': {'ID': '1', 'TITLE': 'задача', 'DESCRIPTION': 'Текст', 'RESPONSIBLE_ID': '1'}}
